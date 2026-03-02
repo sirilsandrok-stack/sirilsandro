@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+char actualPassword[] = "kali123";
+char dictionary[][20] = {
+        "admin",
+        "root",
+        "toor",
+        "kali",
+        "kali123",
+        "password",
+        "123456"     };
+int size = sizeof(dictionary) / sizeof(dictionary[0]);
+int found = 0;
+printf("Starting Dictionary Attack (Linux)...\n\n");
+for(int i = 0; i < size; i++)
+{
+printf("Trying password: %s\n", dictionary[i]);
+if(strcmp(actualPassword, dictionary[i]) == 0)
+{
+printf("\nPassword Cracked!\n");
+printf("Password is: %s\n", dictionary[i]);
+found = 1;
+break;
+}
+}
+
+if(!found)
+printf("\nPassword not found in dictionary.\n");
+return 0;
+}
